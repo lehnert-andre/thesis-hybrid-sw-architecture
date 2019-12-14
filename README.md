@@ -22,9 +22,15 @@
 
 „Was soll?“ etwa ½ Seite abstrakt: Welche Forschungsfragen sollen beantwortet werden? Was soll erreicht werden? Welche wissenschaftlichen Erkenntnisse sollen gewonnen werden?
 
+
+
 ## Artefakte
 
 „Was soll?“ konkret: Stichpunktartig formuliert, welche konkreten Dinge produziert werden sollen. Dazu gehört stets das Thesisdokument, ggf. Programme wie Spezifikationen, Implementationen, Prototypen, Handbücher, oder Videos, Filme.
+
+- Spezifikation einer Referenzarchitektur für hybride Web-Anwendungen.
+- Transitionsprozess der klassischen Software-Architektur des Unternehmens zur kompatiblen und hybriden Software-Architektur.
+- Referenzimplementierung einer Proxy-, einer Adapter- oder einer Bridge-Komponente, falls notwendig.
 
 ## Aufgaben
 
@@ -34,4 +40,8 @@
 
 Bücher, Artikel, elektronische Quellen zum Thema
 
+- ⭐ Formen der Datenpersitierung in Electron, mit Vor- und Nachteilen, sowie der "Bundling" Eigenschaften (DB im Electron Bundle) https://www.techiediaries.com/electron-data-persistence/ 
 
+## Legende
+
+⭐: Leseempfehlung
