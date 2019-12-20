@@ -18,24 +18,16 @@
 
 „Was ist?“ etwa ½ Seite Text über den Startzustand: das Umfeld, den Stand der Wissenschaft und das Problem, das mit der Arbeit zu lösen sein soll.
 
-- Entwicklung individueller datengetriebener Softwaresysteme
-- Großteil der Software für den internen Betrieb vorgesehen, z.B. für Steuerungs-, Administrations- oder Verwaltungsaufgaben.
-- Darstellung vieler Daten
-- Fokus liegt auf Single-Page-Applications (SPA) für die Darstellung im Client.
-- Web-Frameworks für die Umsetzung von SPAs sind zurzeit Angular und Vue.js
-- Die SPA kommuniziert mit mindestens einem REST-Service zum Datenaustausch.
-- Die Backend-Services besitzen meistens eine Datenbank zur Persistierung.
-- Zustände der Anwendung bzw. der Sessions werden stehts beim Client oder in der Datenbank gehalten.
-- Diese Lösung setzt einen Büroarbeitsplatz mit stetiger Netzwerkverbindung vorraus.
+Die eXXcellent solutions consultng & software GmbH berät, konzipiert und entwickelt mit ihren Kunden individuelle datengetriebener Softwaresysteme. Der Großteil der Software ist für den internen Betrieb vorgesehen, z.B. für Steuerungs-, Administrations- oder Verwaltungsaufgaben. Typischerweise sind dafür grafische Oberflächen zur Darstellung vieler Informationen notwendig. Hierzu werden Single-Page-Applications (SPA) mit Web-Frameworks, wie Angular, React oder Vue.js verwendet.
 
-- Das "mobile Arbeiten" ist mit der aktuellen Situation kaum sinnvoll.
-- Daten, Kennzahlen und Metriken sollen vom Geschäftsführer per Tablet abgerufen werden können.
-- Aktionen sollen per Smartphone von unterwegs ausgelöst werden können.
-- Die Arbeit im Zug soll auch ohne permanente Netzwerkverbindung möglich sein.
+Entsprechend einer klassichen 3-Schichten-Architektur, mit einem Client, Server und der Datenhaltung, kommuniziert eine SPA mit mindestens einem Server zustandslos mittels REST. Die Zustände der Anwendung werden stehts beim Client oder in der Datenbank gehalten. Eine solche Lösung setzt daher einen Büroarbeitsplatz mit stetiger Netzwerkverbindung vorraus.
 
-- Seit der Vorstellung von Apache Cordova im Jahr XXXX sind zahlreiche Frameworks, wie Phonegap, Ionic, ReactNative, Flutter und Electron  entstanden, die die hybride Nutzung einer Code-Basis auf verschiedenen Plattformen und Betriebssystemen ermöglichen.
-- In dieser Arbeit wird eine SPA-Anwendung vorrausgesetzt, sodass HTML, CSS und JavaScript als Basis dienen.
+In den Zeiten des mobilen Arbeitens wünscht sich der Kunde zunehmend die permanente Verfügbarkeit der bereitgestellten Funktionen und Informationen. 
+Beispielsweise möchte die Geschäftsführung auch in einem Meeting die aktuellen Kennzahlen und Metriken per Tablet abrufem können. Angestellte hingegen wünschen sich die Möglichkeit morgens im Zug bei einer schlechten Netzwerkverbindung Aufträge für den Tag vorzubereiten.
 
+Seit der Vorstellung von Apache Cordova bzw. Adobe PhoneGap im Jahr 2009 sind zahlreiche Frameworks, wie Ionic, ReactNative, Flutter und Electron und schließlich die Web-Standards für Progressive Web Apps entstanden, die eine hybride Nutzung einer einzigen Code-Basis auf verschiedenen Plattformen und Betriebssystemen ermöglichen. Sie erfüllen damit einen Teil der Kundenanforderungen. 
+
+Diese Arbeit widmet sich dem offenen Thema der Offlinefähigkeit und der Übertragbarkeit der jetzigen Software-Architektur hin zu einer "hybriden" Software-Architektur.
 
 ## Ziele
 
