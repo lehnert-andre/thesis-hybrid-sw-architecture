@@ -1,4 +1,11 @@
-# Tranistion der klassischen zur hybriden Software-Architektur
+# Eine hybride Software-Architektur zum mobilen Arbeiten
+
+Weitere Vorschläge:
+> Eine hybride Software-Architektur für plattformübergreifende Anwendungen
+
+> ...
+
+---
 
 - Arbeitstitel: ``` ```
 - Student: ``` ```
