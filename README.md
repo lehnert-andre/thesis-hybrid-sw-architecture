@@ -16,7 +16,7 @@
 
 ## Kontext und Gegenstand der Arbeit
 
-„Was ist?“ etwa ½ Seite Text über den Startzustand: das Umfeld, den Stand der Wissenschaft und das Problem, das mit der Arbeit zu lösen sein soll.
+__„Was ist?“ etwa ½ Seite Text über den Startzustand: das Umfeld, den Stand der Wissenschaft und das Problem, das mit der Arbeit zu lösen sein soll.__
 
 Die eXXcellent solutions consultng & software GmbH berät, konzipiert und entwickelt mit ihren Kunden individuelle datengetriebener Softwaresysteme. Der Großteil der Software ist für den internen Betrieb vorgesehen, z.B. für Steuerungs-, Administrations- oder Verwaltungsaufgaben. Typischerweise sind dafür grafische Oberflächen zur Darstellung vieler Informationen notwendig. Hierzu werden Single-Page-Applications (SPA) mit Web-Frameworks, wie Angular, React oder Vue.js verwendet.
 
@@ -31,7 +31,7 @@ Diese Arbeit widmet sich dem offenen Thema der Offlinefähigkeit und der Übertr
 
 ## Ziele
 
-„Was soll?“ etwa ½ Seite abstrakt: Welche Forschungsfragen sollen beantwortet werden? Was soll erreicht werden? Welche wissenschaftlichen Erkenntnisse sollen gewonnen werden?
+__„Was soll?“ etwa ½ Seite abstrakt: Welche Forschungsfragen sollen beantwortet werden? Was soll erreicht werden? Welche wissenschaftlichen Erkenntnisse sollen gewonnen werden?__
 
 - Analyse einer aktuellen Schichtenarchitektur mit einem Client, Server und einer Datenbank
 - Überführung der Schichtenarchitektur in eine hexagonale Software-Architektur (auch Zwiebel- oder Clean-SW-Architektur), um die einzelnen Bausteine der ursprünglichen Schichten präsent darzustellen
@@ -55,7 +55,7 @@ Diese Arbeit widmet sich dem offenen Thema der Offlinefähigkeit und der Übertr
 
 ## Artefakte
 
-„Was soll?“ konkret: Stichpunktartig formuliert, welche konkreten Dinge produziert werden sollen. Dazu gehört stets das Thesisdokument, ggf. Programme wie Spezifikationen, Implementationen, Prototypen, Handbücher, oder Videos, Filme.
+__„Was soll?“ konkret: Stichpunktartig formuliert, welche konkreten Dinge produziert werden sollen. Dazu gehört stets das Thesisdokument, ggf. Programme wie Spezifikationen, Implementationen, Prototypen, Handbücher, oder Videos, Filme.__
 
 - Spezifikation einer Referenzarchitektur für hybride Web-Anwendungen.
   - Eine Darstellungsform wären zwei Hexagone, für den Client und den Server, und deren Bausteine auf den einzelnen Schichten
@@ -65,13 +65,13 @@ Diese Arbeit widmet sich dem offenen Thema der Offlinefähigkeit und der Übertr
 
 ## Aufgaben
 
-„Wie soll?“: Stichpunktartig einzelne Aufgabenpakete, die vom Start bis zu den Zielen zu bearbeiten sind. Ggf. Vorgehensweisen, Methoden, Lösungsansätze nennen. Ggf. Umfang abschätzen, Reihenfolgen festlegen, Prioritäten setzen.
+__„Wie soll?“: Stichpunktartig einzelne Aufgabenpakete, die vom Start bis zu den Zielen zu bearbeiten sind. Ggf. Vorgehensweisen, Methoden, Lösungsansätze nennen. Ggf. Umfang abschätzen, Reihenfolgen festlegen, Prioritäten setzen.__
 
 
 
 ## Literatur
 
-Bücher, Artikel, elektronische Quellen zum Thema
+__Bücher, Artikel, elektronische Quellen zum Thema__
 
 - ⭐ Formen der Datenpersitierung in Electron, mit Vor- und Nachteilen, sowie der "Bundling" Eigenschaften (DB im Electron Bundle) https://www.techiediaries.com/electron-data-persistence/ 
 
