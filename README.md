@@ -33,40 +33,46 @@ Diese Arbeit widmet sich dem offenen Thema der Offlinefähigkeit und der Übertr
 
 __„Was soll?“ etwa ½ Seite abstrakt: Welche Forschungsfragen sollen beantwortet werden? Was soll erreicht werden? Welche wissenschaftlichen Erkenntnisse sollen gewonnen werden?__
 
-- Analyse einer aktuellen Schichtenarchitektur mit einem Client, Server und einer Datenbank
-- Überführung der Schichtenarchitektur in eine hexagonale Software-Architektur (auch Zwiebel- oder Clean-SW-Architektur), um die einzelnen Bausteine der ursprünglichen Schichten präsent darzustellen
-  - Im Kern die Geschäftslogik
-  - Schichten der Datenaufbereitung mit ihren Bausteinen Richtung Client und Richtung Datenhaltung/ externer Systeme
-  - Zugriffsschichten mit ihren Bausteinen Richtung Client und Richtung Datenhaltung/ externer Systeme
-  - Der **Fokus liegt dabei auf dem Client**, dessen Rolle, den eigenen Schichten und Bausteine zur Datenbereitstellung.
-    In der aktuellen Schichtenarchitektur ist der Client unterrepräsentiert bzw. die konkrete Rolle der "Dialogkern-Schicht" unscharf.
-    Häufig wird der "Dialogkern" als Teil einer Komponente (vlg. Angular) gesehen. Die Schichtentrennung wird dadurch aufgeweicht.
-  - Es wird empfohlen für den Client und den Server jeweils eigene Hexagone zu verwenden
-- Nach der Analyse und während der Überführung wird sich der Bedarf nach einem Proxy, Adapter bzw. Bridge zeigen. 
-  Falls ein solcher Baustein zur Lösung notwendig ist, ist eine Referenzimplementierung vorzunehmen.
+Im Rahmen der Arbeit soll eine "hybride" Software-Architektur entwickelt werden. Dazu ist eine Analyse der aktuellen Schichtenarchitektur mit einem Client, Server und einer Datenbank anhand eines Referenz-Projektes notwendig.
+
+Für die Spezifikation dieser neuen Software-Architektur wird eine Überführung der Schichtenarchitektur in eine hexagonale Software-Architektur (auch Zwiebel- oder Clean-Software-Architektur genannt) empfohlen, um die einzelnen Bausteine der ursprünglichen Schichten präsent darzustellen. Dieser Zwischenschritt soll die Lösungsfindung der Offlinefähigkeit unterstützen.
+
+Der Fokus liegt daher auf dem Client und der Erarbeitung einer eigenständigen hexagonalen Teil-Architektur, sodass der Client und der Server jeweils ein "Hexagon" besitzen und miteinander kommunizieren.
+Dieses Vorgehen adressiert ein Problem der aktuellen Schichtenarchitektur, bei der der Client unterrepräsentiert bzw. die konkrete Rolle der "Dialogkern-Schicht" unscharf ist, da der Datenzugriff auf den Server inkludiert ist.
+
+Ergibt sich bei der Spezifikation der "hybriden" Software-Architektur der Bedarf eines Bausteins zur Realisierung der Offlinefähigkeit, zum Beispiel in Form eines Proxies, so ist eine Referenzimplementierung vorzunehmen.
 
 ![Schichtenarchitektur](./eXX_Schichtenarchitektur.JPG "Beispiel einer aktuellen Schichtenarchitektur")
 
 ![Hexagonale Architektur](https://speakerd.s3.amazonaws.com/presentations/de8629f0bf520131c2e20239d959ba18/slide_11.jpg?1400675141 "Hexagonale Architektur von https://fideloper.com/hexagonal-architecture")
-
-### Optional/ in Klärung
-
-- Die Code-Basis des Clients sind HTML, CSS und JavaScript. Daher steht das Problem der nativen UI-Elemente und dem Look´n´Feel, z.B. für Android, Apple MacOS oder Windows im Raum.
 
 ## Artefakte
 
 __„Was soll?“ konkret: Stichpunktartig formuliert, welche konkreten Dinge produziert werden sollen. Dazu gehört stets das Thesisdokument, ggf. Programme wie Spezifikationen, Implementationen, Prototypen, Handbücher, oder Videos, Filme.__
 
 - Spezifikation einer Referenzarchitektur für hybride Web-Anwendungen.
-  - Eine Darstellungsform wären zwei Hexagone, für den Client und den Server, und deren Bausteine auf den einzelnen Schichten
-- Transitionsprozess der klassischen Software-Architektur des Unternehmens zur kompatiblen und hybriden Software-Architektur.
-- Referenzimplementierung einer Proxy-, einer Adapter- oder einer Bridge-Komponente, falls notwendig.
-  - Diese Komponente/ dieser Baustein wäre als Teil der Referenzarchitektur sichtbar
+  - Eine mögliche Darstellungsform wären zwei Hexagone, für den Client und den Server, und deren Bausteine auf den einzelnen Schichten und den Datenaustausch
+- Darstellung des Transitionsprozess der klassischen Software-Architektur des Unternehmens zur kompatiblen und hybriden Software-Architektur.
+- Referenzimplementierung eines Bausteins zur Offlinefähigkeit, falls notwendig.
+  - Dieser Baustein wäre als Teil der Referenzarchitektur sichtbar
 
 ## Aufgaben
 
 __„Wie soll?“: Stichpunktartig einzelne Aufgabenpakete, die vom Start bis zu den Zielen zu bearbeiten sind. Ggf. Vorgehensweisen, Methoden, Lösungsansätze nennen. Ggf. Umfang abschätzen, Reihenfolgen festlegen, Prioritäten setzen.__
 
+Die Aufagen gliedern sich in einen theoretischen und konzeptionellen Teil und einen Teil zu Implementierung eines Prototypen, die die Umsetzbarkeit des Konzeptes zeigt.
+
+- Beschreibung der aktuellen Schichten-Architektur anhand eines Referenz-Projektes
+  - Hier bietet sich die Bogenliga-Applikation aus der SWT2-Vorlesung an (steht unter MIT Lizenz auf GitHub bereit)
+- Überfühung der Schichten-Architektur in eine hexagonale Architektur mit der Identifikation der einzelnen Bausteine pro "Schicht"
+- Heauslösen des Clients in ein eigenes Hexagon
+  - An dieser Stelle ist es ggf. notwendig eine zusätzliche Schicht einzuführen, die als äquivalent zur Datenzugriffsschicht des Servers fungiert
+- Recherche zu "Best-Practices" der Offlinefähigkeit im Client
+  - An dieser Stelle soll nur ein (max. zwei) hybride Web-Frameworks betrachtet werden, z.B. Electron oder PWAs
+  - Die eXXcellent stallt vorher eine Anforderungsliste bezüglich Funktionalität, Kompatibilität, Erweiterbarkeit und Technologien (Technologie der Code-Basis) bereit.
+- Konzeption einer Lösung zur Offlinefähigkeit
+- Referenzimplementierung der Lösung
+  - Hier bietet sich die Bogenliga-Applikation aus der SWT2-Vorlesung an (steht unter MIT Lizenz auf GitHub bereit)
 
 
 ## Literatur
