@@ -42,7 +42,8 @@ __„Was soll?“ etwa ½ Seite abstrakt: Welche Forschungsfragen sollen beantwo
 
 Im Rahmen der Arbeit soll eine "hybride" Software-Architektur entwickelt werden. Dazu ist eine Analyse der aktuellen Schichtenarchitektur mit einem Client, Server und einer Datenbank anhand eines Referenz-Projektes notwendig.
 
-Für die Spezifikation dieser neuen Software-Architektur wird eine Überführung der Schichtenarchitektur in eine hexagonale Software-Architektur (auch Zwiebel- oder Clean-Software-Architektur genannt) empfohlen, um die einzelnen Bausteine der ursprünglichen Schichten präsent darzustellen. Dieser Zwischenschritt soll die Lösungsfindung der Offlinefähigkeit unterstützen.
+Für die Spezifikation dieser neuen Software-Architektur wird eine Überführung der Schichtenarchitektur in eine hexagonale Software-Architektur (auch Zwiebel- oder Clean-Software-Architektur genannt) empfohlen, um die einzelnen Bausteine der ursprünglichen Schichten präsent darzustellen. Diese Architektur hilft bei der Umsetzung der Bounded Contexts aus dem Domain-Driven Design (vgl. (1), S. 41).
+Dieser Zwischenschritt soll die Lösungsfindung der Offlinefähigkeit unterstützen.
 
 Der Fokus liegt daher auf dem Client und der Erarbeitung einer eigenständigen hexagonalen Teil-Architektur, sodass der Client und der Server jeweils ein "Hexagon" besitzen und miteinander kommunizieren.
 Dieses Vorgehen adressiert ein Problem der aktuellen Schichtenarchitektur, bei der der Client unterrepräsentiert bzw. die konkrete Rolle der "Dialogkern-Schicht" unscharf ist, da der Datenzugriff auf den Server inkludiert ist.
@@ -86,7 +87,8 @@ Die Aufagen gliedern sich in einen theoretischen und konzeptionellen Teil und ei
 
 __Bücher, Artikel, elektronische Quellen zum Thema__
 
-- ⭐ Formen der Datenpersitierung in Electron, mit Vor- und Nachteilen, sowie der "Bundling" Eigenschaften (DB im Electron Bundle) https://www.techiediaries.com/electron-data-persistence/ 
+- (1) ⭐ Domain-Driven Design Distilled; Vernon, Vaughn; Addison-Wesley; ISBN: 978-0-13-443442-1
+- (2) ⭐ Formen der Datenpersitierung in Electron, mit Vor- und Nachteilen, sowie der "Bundling" Eigenschaften (DB im Electron Bundle) https://www.techiediaries.com/electron-data-persistence/ 
 
 Zur "hexagonalen" SW-Architektur:
 - http://alistair.cockburn.us/Hexagonal+architecture
