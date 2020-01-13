@@ -88,7 +88,11 @@ Die Aufagen gliedern sich in einen theoretischen und konzeptionellen Teil und ei
 __Bücher, Artikel, elektronische Quellen zum Thema__
 
 - (1) ⭐ Domain-Driven Design Distilled; Vernon, Vaughn; Addison-Wesley; ISBN: 978-0-13-443442-1
+
+Zu hybriden Apps:
 - (2) ⭐ Formen der Datenpersitierung in Electron, mit Vor- und Nachteilen, sowie der "Bundling" Eigenschaften (DB im Electron Bundle) https://www.techiediaries.com/electron-data-persistence/ 
+- https://www.heise.de/developer/artikel/Electron-und-Cordova-vs-PWA-wann-was-wie-und-warum-4634262.html
+
 
 Zur "hexagonalen" SW-Architektur:
 - http://alistair.cockburn.us/Hexagonal+architecture
