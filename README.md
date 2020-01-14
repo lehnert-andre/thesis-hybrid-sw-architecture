@@ -88,6 +88,7 @@ Die Aufagen gliedern sich in einen theoretischen und konzeptionellen Teil und ei
 __Bücher, Artikel, elektronische Quellen zum Thema__
 
 - (1) ⭐ Domain-Driven Design Distilled; Vernon, Vaughn; Addison-Wesley; ISBN: 978-0-13-443442-1
+- https://ddd-referenz.de/
 
 Zu hybriden Apps:
 - (2) ⭐ Formen der Datenpersitierung in Electron, mit Vor- und Nachteilen, sowie der "Bundling" Eigenschaften (DB im Electron Bundle) https://www.techiediaries.com/electron-data-persistence/ 
