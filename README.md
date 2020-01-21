@@ -33,15 +33,20 @@ Für die Stadtwerke München entwickelt die eXXcellent solutions im Kontext des 
 Aus dem OnPa-System werden die zu überprüfenden Baustellen exportiert und in dem neuen Routenplaner auf einer interaktiven Karte (Google Maps, Here) angezeigt. Die Baustellenprüfer haben die Möglichkeit die Reihenfolge der Termine zu tauschen, Termine des nächsten Tages vorzuziehen oder Termine mit dem Kollegen zu tauschen. Das Ziel ist eine Routenptimiertung, die zusätzlich durch das neue System unterstützt wird. Dazu findet eine automatische Optimierung der Reihenfolge der Termine (Traveling Salesman Problem) statt, die mit Echtzeitdaten über den Verkehr angereichert wird.
 Der neue Routenplaner bietet zusätzlich den Zugriff auf Details zu den Terminen an, wie Kontaktdaten und Prüfprotokolle.
 
-Die Baustellenprüfer haben an ihren Büroarbeitsplätzen die Möglichkeit die Tagesplanung im Detail vorzubereiten, Termine abzustimmen und Protokolle auszudrucken. Unterwegs soll der OnPa Routenplaner den Zugriff auf die Termine erlauben und die Navigation zu den Baustellen steuern. Die Anwendung muss daher auf Desktop Rechnern und Smartphones nutzbar sein.
+Die Baustellenprüfer haben an ihren Büroarbeitsplätzen die Möglichkeit die Tagesplanung im Detail vorzubereiten, Termine abzustimmen und Protokolle auszudrucken. Unterwegs soll der OnPa Routenplaner den Zugriff auf die Termine erlauben und die Navigation zu den Baustellen steuern --- ohne lange Wartezeiten und Verbindungsabbrüche.
 
+Die Anwendung muss auf Desktop Rechnern und Smartphones nutzbar sein.
 
-[Link zum Prototyp des OnPa Routenplaners (ohne den Server zur Routenoptimierung)](https://swm-onpo-routenplaner-deploy.web.app/)
+> _Interaktiver Prototyp auf Basis eines Mockups:_
+>
+> [Link zum Prototyp des OnPa Routenplaners (ohne den Server zur Routenoptimierung)](https://swm-onpo-routenplaner-deploy.web.app/)
+>
+> _Der Prototyp ist mit Vue.js, einer NoSQL-Datenbank und einem Python-Server in drei Tagen umgesetzt worden. Da die Google-Maps-API teuer ist, wurde die Routenberechnung und die Optimierung deaktiviert._
 
 
 Seit der Vorstellung von Apache Cordova bzw. Adobe PhoneGap im Jahr 2009 sind zahlreiche Frameworks, wie Ionic, ReactNative, Flutter,  Electron und schließlich die Web-Standards für Progressive Web Apps entstanden, die eine Nutzung einer einzigen Code-Basis auf verschiedenen Plattformen ermöglichen. Anwendungen mit dieser Eigenschaft werden folgend als _hybride Anwendungen_ bezeichnet.
 
-Im Gegensatz zum Büroarbeitsplatz unterstützt die lokale Speicherung der notwendigen Termindaten vom Server im Anwendungsclient das mobile Arbeiten der Baustellenprüfer --- ohne lange Wartezeiten und Verbindungsabbrüche. Die Navigation zwischen den Baustellen erfordert zusätzlich den Zugriff auf die Positionsdaten des Smartphones.
+
 
 ## Ziele
 
@@ -50,13 +55,13 @@ __„Was soll?“ etwa ½ Seite abstrakt: Welche Forschungsfragen sollen beantwo
 Im Rahmen der Arbeit wird eine Software-Architektur auf Basis der aktuellen Schichtenarchitektur der eXXcellent solutions entwickelt, die eine plattformübergreifende Nutzung unterstützt und nur eine Code-Basis nutzt. Die OnPa Routenplaner Anwendung der Stadtwerke München dient als Referenz-Projekt. 
 
 Für die Spezifikation der hybriden Software-Architektur wird die jetzige Schichtenarchitektur (siehe Abb.) in eine hexagonale Software-Architektur überführt. 
-Dieser Architekturstil wird je nach Quelle Hexagonal, Ports and Adapters, Onion oder Clean Architecture genannt und ist eine Weiterentwicklung der Schichtenarchitekturen durch Dependency Inversion (muss weiter erläutert werden). 
+Dieser Architekturstil wird je nach Quelle Hexagonal, Ports and Adapters, Onion oder Clean Architecture genannt und ist eine Weiterentwicklung der Schichtenarchitekturen durch Dependency Inversion (vgl. (3), S. 202ff). 
 
 Im Kontext des Domain-Driven Design (vgl. (1), S. 41) definiert jedes Hexagon einen Bounded Context, bei dem das Domänen Model und die Geschäftslogik der Domäne (vgl. Businesslogikschicht der aktuellen Schichtenarchitektur) jeweils der Kern sind. Die weiteren Schichten werden als Ring um diesen Anwendungskern gelegt, dabei verlaufen die Abhängigkeiten zwischen den Schichten immer von Außen nach Innen.
 Dies hat den Vorteil, dass weitere Schichten, zum Beispiel zur Realisierung der Offlinefähigkeit, ohne Änderung der innenliegenden Schichten hinzugefügt werden können.
 
 Der Fokus der Arbeit liegt auf dem Client und der Erarbeitung einer eigenständigen hexagonalen Teil-Architektur, sodass der Client und der Server jeweils ein Hexagon besitzen und miteinander kommunizieren.
-Dabei wird das Problem der aktuellen Schichtenarchitektur addressiert, bei der der Client unterrepräsentiert bzw. die konkrete Rolle der Dialogkern-Schicht unscharf ist, da der Datenzugriff auf den Server und eine globale Zustandsverwaltung mit einem Store (vgl. Flux-Pattern) inkludiert sind. 
+Die Rolle der Dialogkern-Schicht der aktuellen Schichtenarchitektur muss dabei genauer spezifiziert werden, da der Datenzugriff auf den Server und eine globale Zustandsverwaltung mit einem Store (vgl. Flux-Pattern) inkludiert sind. 
 
 ![Schichtenarchitektur](./eXX_Schichtenarchitektur.JPG "Beispiel einer aktuellen Schichtenarchitektur")
 
@@ -66,16 +71,24 @@ Dabei wird das Problem der aktuellen Schichtenarchitektur addressiert, bei der d
 
 __„Was soll?“ konkret: Stichpunktartig formuliert, welche konkreten Dinge produziert werden sollen. Dazu gehört stets das Thesisdokument, ggf. Programme wie Spezifikationen, Implementationen, Prototypen, Handbücher, oder Videos, Filme.__
 
-- Spezifikation einer Referenzarchitektur für hybride Web-Anwendungen auf Basis der OnPa Routenplaner Anwendung.
-  - Als Darstellungsform werden zwei Hexagone, für den Client und den Server, gewählt. 
-    - Die Bausteine der einzelnen Schichten werden erläutert.
-    - Der Datenaustausch wird dargestellt.
-  - Die beiden Schichten Präsentations- und Dialogkernschicht im Client werden analysiert und bei Bedarf weiter zerlegt. 
-- Darstellung des Transitionsprozess der klassischen Software-Architektur des Unternehmens zur kompatiblen und hybriden Software-Architektur.
-- Referenzimplementierung eines Bausteins zur Offlinefähigkeit
-  - Dieser Baustein ist als Teil der Referenzarchitektur sichtbar
-  - Möglicher Lösungsansatz: Ein Proxy wird als Baustein um die Client- und Server-Kommunikation gelegt. Aus Sicht des Clients repräsentiert der Proxy den Server. Der Proxy hat allerdings die Möglichkeit der Datenpersistierung, sodass Anfragen des Clients mit gespeicherten Daten beantwortet werden können.
-  - Die Implementierung ist stark von dem hybriden Framework abhängig. 
+Priorisierung:
+
+1. Spezifikation einer Referenzarchitektur für hybride Web-Anwendungen auf Basis der OnPa Routenplaner Anwendung.
+   - Als Darstellungsform werden zwei Hexagone, für den Client und den Server, gewählt. 
+     - Die Bausteine der einzelnen Schichten werden erläutert.
+     - Der Datenaustausch wird dargestellt.
+   - Die beiden Schichten Präsentations- und Dialogkernschicht im Client werden analysiert und bei Bedarf weiter zerlegt. 
+2. Darstellung des Transitionsprozess der klassischen Software-Architektur des Unternehmens zur kompatiblen und hybriden Software-Architektur.
+   - Gegenüberstellung des resultirenden Codes (Java, Typescript) entsprechend der alten und der neuen Architektur
+   - UML-Klassen- und -Komponenten-Diagramme
+3. Referenz-Implementierung einer Anwendung mit der neuen Architektur
+
+_Optional:_
+
+4. Referenzimplementierung eines Bausteins zur Offlinefähigkeit
+   - Dieser Baustein ist als Teil der Referenzarchitektur sichtbar
+   - Möglicher Lösungsansatz: Ein Proxy wird als Baustein um die Client- und Server-Kommunikation gelegt. Aus Sicht des Clients repräsentiert der Proxy den Server. Der Proxy hat allerdings die Möglichkeit der Datenpersistierung, sodass Anfragen des Clients mit gespeicherten Daten beantwortet werden können.
+   - Die Implementierung ist stark von dem hybriden Framework abhängig. 
   
 
 
@@ -88,15 +101,28 @@ __„Wie soll?“: Stichpunktartig einzelne Aufgabenpakete, die vom Start bis zu
 
 Die Aufagen gliedern sich in einen theoretischen und konzeptionellen Teil und einen Teil zu Implementierung eines Prototypen, die die Umsetzbarkeit des Konzeptes zeigt.
 
-- Beschreibung der aktuellen Schichten-Architektur anhand des Referenz-Projektes
-- Überfühung der Schichten-Architektur in eine hexagonale Architektur mit der Identifikation der einzelnen Bausteine pro Schicht
-- Herauslösen des Clients in ein eigenes Hexagon
-  - An dieser Stelle ist es ggf. notwendig eine zusätzliche Schicht einzuführen, die als äquivalent zur Datenzugriffsschicht des Servers fungiert
-- Recherche zu Best-Practices der Offlinefähigkeit im Client
-  - An dieser Stelle soll nur ein (max. zwei) hybride Web-Frameworks betrachtet werden, z.B. Electron oder PWAs
-  - Die eXXcellent stellt eine Anforderungsliste bezüglich Funktionalität, Kompatibilität, Erweiterbarkeit und Technologien (Technologie der Code-Basis) bereit.
-- Konzeption einer Lösung zur Offlinefähigkeit
-- Referenzimplementierung der Lösung zur Offlinefähigkeit
+Entsprechend der Anforderungen der Stadtwerke München wird Spring Boot für den Server und Angular für den Client verwendet.
+
+Priorisierung:
+
+1. Beschreibung der aktuellen Schichten-Architektur anhand des Referenz-Projektes
+   - Einschränkung auf einen Anwendungsfall, z.B. Benutzer- und Rollen-Verwaltung
+2. Überfühung der Schichten-Architektur in eine hexagonale Architektur mit der Identifikation der einzelnen Bausteine pro Schicht
+   - Herauslösen des Clients in ein eigenes Hexagon
+   - An dieser Stelle ist es ggf. notwendig eine zusätzliche Schicht einzuführen, die als äquivalent zur Datenzugriffsschicht des Servers fungiert
+3. Eine lauffähige Referenz-Implementierung der gezeigten hybriden Architekur liegt vor.
+
+Die Referenz-Implementierung wird in der OnPa Routenplaner Anwendung erprobt.
+
+
+_Optional: Erweiterbarkeit ohne Änderungen am Code zeigen._
+
+4. Beispiel: Offlinefähigkeit
+   - Recherche zu Best-Practices der Offlinefähigkeit im Client
+   - Es werden maximal zwei hybride Web-Frameworks betrachtet
+     - Die eXXcellent stellt eine Anforderungsliste bezüglich Funktionalität, Kompatibilität, Erweiterbarkeit und Technologien (Technologie der Code-Basis) bereit, um die Auswahl des Frameworks zu treffen
+   - Konzeption einer Lösung zur Offlinefähigkeit
+   - Referenzimplementierung der Lösung zur Offlinefähigkeit
 
 
 
@@ -113,6 +139,8 @@ Zu hybriden Apps:
 - https://www.heise.de/developer/artikel/Electron-und-Cordova-vs-PWA-wann-was-wie-und-warum-4634262.html
 
 
+Zur "hexagonalen" SW-Architektur:
+- ⭐ (3) Clean Architecture; A Craftsman´s Guide to Software Structure and Design; Martin, Robert C.; Prentice Hall; ISBN: 978-0-13-449416-6
 Zur "hexagonalen" SW-Architektur:
 - http://alistair.cockburn.us/Hexagonal+architecture
 - https://fideloper.com/hexagonal-architecture
